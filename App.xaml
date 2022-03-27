@@ -24,6 +24,43 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style
+                x:Key="placeHolder"
+                BasedOn="{StaticResource {x:Type TextBox}}"
+                TargetType="{x:Type TextBox}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Grid>
+                                <TextBox
+                                    x:Name="textSource"
+                                    Panel.ZIndex="2"
+                                    Background="Transparent"
+                                    BorderBrush="#e1b12c"
+                                    BorderThickness="0,0,0,3"
+                                    Foreground="#fffcf2"
+                                    Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox
+                                    Panel.ZIndex="1"
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="0,0,0,0"
+                                    Text="{TemplateBinding Tag}">
+                                    <TextBox.Style>
+                                        <Style TargetType="{x:Type TextBox}">
+                                            <Setter Property="Foreground" Value="Transparent" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                    <Setter Property="Foreground" Value="#718093" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
