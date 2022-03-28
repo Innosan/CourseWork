@@ -3,6 +3,9 @@ using System.Windows;
 using System.Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
+using CourseWork.Validators;
+using FluentValidation.Results;
+using System.ComponentModel;
 
 namespace CourseWork
 {
@@ -12,6 +15,8 @@ namespace CourseWork
     public partial class RegistrationWindow : Window
     {
         ApplicationContext db;
+
+        BindingList<string> errors = new BindingList<string>();
 
         public RegistrationWindow()
         {
@@ -41,6 +46,8 @@ namespace CourseWork
 
         private void logInBtn_Click(object sender, RoutedEventArgs e)
         {
+            errors.Clear();
+
             string name = nameBox.Text;
             string login = loginBox.Text;
             string mail = mailBox.Text;
@@ -48,8 +55,33 @@ namespace CourseWork
 
             User user = new User(login, password, name, mail);
 
-            db.Users.Add(user);
-            db.SaveChanges();
+            UserValidator validator = new UserValidator();
+
+            ValidationResult results = validator.Validate(user);
+
+            if (results.IsValid == false)
+            {
+                foreach (ValidationFailure error in results.Errors)
+                {
+                    errors.Add(error.ErrorMessage);
+                }
+
+                string res = "";
+
+                foreach (string error in errors)
+                {
+                    res += error.ToString();
+                }
+
+                MessageBox.Show(res);
+            }
+            else
+            {
+                MessageBox.Show("Имя валидно!");
+                /*db.Users.Add(user);
+                db.SaveChanges();*/
+            }
+
         }
     }
 }

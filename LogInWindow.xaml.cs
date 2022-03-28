@@ -48,7 +48,7 @@ namespace CourseWork
             }
             else
             {
-                MessageBox.Show("Дурак, блять!!!11!");
+                MessageBox.Show("Такого пользователя не существует!");
             }
         }
     }

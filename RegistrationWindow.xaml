@@ -162,15 +162,15 @@
             BorderBrush="#e1b12c"
             BorderThickness="0,0,0,3"
             FontSize="20"
-            Foreground="#718093" />
+            Foreground="#718093"
+            MaxLength="14" />
         <Button
             x:Name="logInBtn"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Margin="32,317,32,1"
+            Grid.Row="2"
+            Margin="89,4,89,5"
             Background="#e1b12c"
             Click="logInBtn_Click"
-            FontSize="27"
+            FontSize="23"
             Foreground="#fffcf2"
             Style="{DynamicResource RoundedButton}">
             Регистрация
