@@ -71,18 +71,39 @@
             Регистрация
         </TextBlock>
 
+        <Viewbox
+            Grid.Row="1"
+            Width="32"
+            Height="32"
+            Margin="0,0,360,0"
+            VerticalAlignment="Top">
+            <Canvas Width="24" Height="24">
+                <Path Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" Fill="#AFE1B12C" />
+            </Canvas>
+        </Viewbox>
         <TextBox
             x:Name="nameBox"
             Grid.Row="1"
             Width="304"
             Height="30"
-            Margin="0,4,0,0"
+            Margin="0,0,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Background="#00FFFFFF"
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="Полное имя" />
+
+        <Viewbox
+            Grid.Row="1"
+            Width="32"
+            Height="32"
+            Margin="0,70,365,0"
+            VerticalAlignment="Top">
+            <Canvas Width="24" Height="24">
+                <Path Data="M10,17V14H3V10H10V7L15,12L10,17M10,2H19A2,2 0 0,1 21,4V20A2,2 0 0,1 19,22H10A2,2 0 0,1 8,20V18H10V20H19V4H10V6H8V4A2,2 0 0,1 10,2Z" Fill="#AFE1B12C" />
+            </Canvas>
+        </Viewbox>
         <TextBox
             x:Name="loginBox"
             Grid.Row="1"
@@ -96,6 +117,16 @@
             Style="{StaticResource placeHolder}"
             Tag="Логин" />
 
+        <Viewbox
+            Grid.Row="1"
+            Width="32"
+            Height="32"
+            Margin="0,140,360,0"
+            VerticalAlignment="Top">
+            <Canvas Width="24" Height="24">
+                <Path Data="M20,18H18V9.25L12,13L6,9.25V18H4V6H5.2L12,10.25L18.8,6H20M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" Fill="#AFE1B12C" />
+            </Canvas>
+        </Viewbox>
         <TextBox
             x:Name="mailBox"
             Grid.Row="1"
@@ -108,6 +139,17 @@
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="E-Mail" />
+
+        <Viewbox
+            Grid.Row="1"
+            Width="32"
+            Height="32"
+            Margin="0,210,360,0"
+            VerticalAlignment="Top">
+            <Canvas Width="24" Height="24">
+                <Path Data="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" Fill="#AFE1B12C" />
+            </Canvas>
+        </Viewbox>
         <PasswordBox
             x:Name="passBox"
             Grid.Row="1"
@@ -127,6 +169,7 @@
             Grid.RowSpan="2"
             Margin="32,317,32,1"
             Background="#e1b12c"
+            Click="logInBtn_Click"
             FontSize="27"
             Foreground="#fffcf2"
             Style="{DynamicResource RoundedButton}">
@@ -153,7 +196,7 @@
                 Click="toSignInHypLink_Click"
                 Cursor="Hand"
                 Foreground="#e1b12c"
-                NavigateUri="RegistrationWindow.xaml"
+                NavigateUri="LogInWindow.xaml"
                 TextDecorations="None">
                 Войти!
             </Hyperlink>

@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CourseWork
 {
@@ -8,9 +11,13 @@ namespace CourseWork
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        ApplicationContext db;
+
         public RegistrationWindow()
         {
             InitializeComponent();
+
+            db = new ApplicationContext();
 
             passBox.GotFocus += new RoutedEventHandler(passBox_Focus);
 
@@ -30,6 +37,19 @@ namespace CourseWork
 
             newForm.Show();
             this.Close();
+        }
+
+        private void logInBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string name = nameBox.Text;
+            string login = loginBox.Text;
+            string mail = mailBox.Text;
+            string password = passBox.Password;
+
+            User user = new User(login, password, name, mail);
+
+            db.Users.Add(user);
+            db.SaveChanges();
         }
     }
 }
