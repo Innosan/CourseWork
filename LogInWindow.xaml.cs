@@ -44,7 +44,10 @@ namespace CourseWork
 
             if (authUser != null)
             {
-                MessageBox.Show("Пользователь найден");
+                var newForm = new MainWindow();
+
+                newForm.Show();
+                this.Close();
             }
             else
             {

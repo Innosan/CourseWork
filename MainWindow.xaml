@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:CourseWork"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Log In"
-    Width="450"
-    Height="650"
+    Width="1240 "
+    Height="850"
     FontFamily="/CourseWork;component/Fonts/#Montserrat Alternates"
     ResizeMode="CanResizeWithGrip"
     WindowStartupLocation="CenterScreen"
@@ -18,6 +18,80 @@
             <GradientStop Offset="1" Color="#FF2F3640" />
         </LinearGradientBrush>
     </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="279*"></ColumnDefinition>
+            <ColumnDefinition Width="953*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="68*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="55*"></RowDefinition>
+            <RowDefinition Height="55*"></RowDefinition>
+            <RowDefinition Height="55*"></RowDefinition>
+            <RowDefinition Height="423*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Rectangle
+            Grid.ColumnSpan="2"
+            Fill="#FF1B1F25"
+            RadiusX="24"
+            RadiusY="24"
+            Width="1010"
+            Height="55"
+            Margin="0,0,140,0"
+            >
+        </Rectangle>
+        <Button
+            Foreground="#e1b12c"
+            FontSize="27"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Background="Transparent"
+            x:Name="goBackBtn"
+            Grid.Row="5"
+            Grid.Column="2"
+            Click="goBackBtn_Click" Height="70" Margin="18,12,19,12" Width="242"
+            BorderThickness="0">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="BorderThickness" Value="0"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF1B1F25"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            Back to Login
+        </Button>
 
-    <Grid />
+        <TextBlock
+            Grid.Row="2"
+            VerticalAlignment="Center"
+            Margin="40,0,0,0"
+            FontSize="25"
+            Foreground="White"
+            >
+            Клиенты
+        </TextBlock>
+        <TextBlock
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Margin="40,0,0,0"
+            FontSize="25"
+            Foreground="White"
+            >
+            Детали
+        </TextBlock>
+        <TextBlock
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            Margin="40,0,0,0"
+            FontSize="25"
+            Foreground="White"
+            >
+            Услуги
+        </TextBlock>
+        
+    </Grid>
 </Window>

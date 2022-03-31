@@ -18,5 +18,13 @@ namespace CourseWork
             InitializeComponent();
 
         }
+
+        private void goBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new LogInWindow();
+
+            newWindow.Show();
+            this.Close();
+        }
     }
 }

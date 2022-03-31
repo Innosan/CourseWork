@@ -31,7 +31,7 @@ namespace CourseWork.Validators
                 .NotEmpty().WithMessage("Поле пустое!")
                 .Length(3, 15).WithMessage("Пароль слишком короткий!")
                 .Must(IsValidPassword).WithMessage("В пароле есть неприемлимые символы!");
-                
+            
         }
 
         protected bool IsValidName(string name)
@@ -65,7 +65,7 @@ namespace CourseWork.Validators
             password = password.Replace(".", "");
             password = password.Replace("-", "");
 
-            return password.All(Char.IsLetterOrDigit) ;
+            return password.All(Char.IsLetterOrDigit);
         }
     }
 }

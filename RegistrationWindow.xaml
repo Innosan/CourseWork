@@ -93,7 +93,18 @@
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="Полное имя" />
-
+        <TextBlock
+            x:Name="UserName"
+            Grid.Row="1"
+            Width="304"
+            Height="30"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,40,0,0"
+            FontSize="14"
+            Foreground="#D8000C"
+            >
+        </TextBlock>
         <Viewbox
             Grid.Row="1"
             Width="32"
@@ -116,6 +127,18 @@
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="Логин" />
+        <TextBlock
+            x:Name="UserLogin"
+            Grid.Row="1"
+            Width="304"
+            Height="30"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,110,0,0"
+            FontSize="14"
+            Foreground="#D8000C"
+            >
+        </TextBlock>
 
         <Viewbox
             Grid.Row="1"
@@ -139,6 +162,19 @@
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="E-Mail" />
+        <TextBlock
+            x:Name="UserMail"
+            Grid.Row="1"
+            Width="304"
+            Height="30"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,180,0,0"
+            FontSize="14"
+            Foreground="#D8000C"
+            Background="Transparent"
+            >
+        </TextBlock>
 
         <Viewbox
             Grid.Row="1"
@@ -164,6 +200,18 @@
             FontSize="20"
             Foreground="#718093"
             MaxLength="14" />
+        <TextBlock
+            x:Name="UserPassword"
+            Grid.Row="1"
+            Width="304"
+            Height="30"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,250,0,0"
+            FontSize="14"
+            Foreground="#D8000C"
+            >
+        </TextBlock>
         <Button
             x:Name="logInBtn"
             Grid.Row="2"

@@ -6,6 +6,8 @@ using System.Linq;
 using CourseWork.Validators;
 using FluentValidation.Results;
 using System.ComponentModel;
+using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace CourseWork
 {
@@ -27,6 +29,9 @@ namespace CourseWork
             passBox.GotFocus += new RoutedEventHandler(passBox_Focus);
 
             passBox.Password = "samplepass";
+
+            Binding binding = new Binding();
+            binding.Source = errors;
         }
 
         private void passBox_Focus(object sender, RoutedEventArgs e)
@@ -38,7 +43,7 @@ namespace CourseWork
 
         private void toSignInHypLink_Click(object sender, RoutedEventArgs e)
         {
-            var newForm = new MainWindow();
+            var newForm = new LogInWindow();
 
             newForm.Show();
             this.Close();
@@ -53,33 +58,37 @@ namespace CourseWork
             string mail = mailBox.Text;
             string password = passBox.Password;
 
+            List<TextBlock> errorBlocks = new List<TextBlock> { UserName, UserLogin, UserMail, UserPassword };
+
             User user = new User(login, password, name, mail);
 
             UserValidator validator = new UserValidator();
 
-            ValidationResult results = validator.Validate(user);
+            FluentValidation.Results.ValidationResult results = validator.Validate(user);
 
             if (results.IsValid == false)
             {
                 foreach (ValidationFailure error in results.Errors)
                 {
-                    errors.Add(error.ErrorMessage);
+                    foreach (TextBlock item in errorBlocks)
+                    {
+                        if (error.PropertyName == item.Name)
+                        {
+                            item.Text = error.ErrorMessage;
+                        }
+                    }
                 }
-
-                string res = "";
-
-                foreach (string error in errors)
-                {
-                    res += error.ToString();
-                }
-
-                MessageBox.Show(res);
             }
             else
             {
-                MessageBox.Show("Имя валидно!");
-                /*db.Users.Add(user);
-                db.SaveChanges();*/
+                /*MessageBox.Show("Поля валидны!");*/
+                db.Users.Add(user);
+                db.SaveChanges();
+
+                foreach (TextBlock textBlock in errorBlocks)
+                {
+                    textBlock.Text = "";
+                }
             }
 
         }
