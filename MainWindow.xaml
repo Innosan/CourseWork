@@ -20,44 +20,45 @@
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="279*"></ColumnDefinition>
-            <ColumnDefinition Width="953*"></ColumnDefinition>
+            <ColumnDefinition Width="279*" />
+            <ColumnDefinition Width="953*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="68*"></RowDefinition>
-            <RowDefinition Height="35*"></RowDefinition>
-            <RowDefinition Height="55*"></RowDefinition>
-            <RowDefinition Height="55*"></RowDefinition>
-            <RowDefinition Height="55*"></RowDefinition>
-            <RowDefinition Height="423*"></RowDefinition>
+            <RowDefinition Height="68*" />
+            <RowDefinition Height="35*" />
+            <RowDefinition Height="55*" />
+            <RowDefinition Height="55*" />
+            <RowDefinition Height="55*" />
+            <RowDefinition Height="423*" />
         </Grid.RowDefinitions>
         <Rectangle
-            Grid.ColumnSpan="2"
-            Fill="#FF1B1F25"
-            RadiusX="24"
-            RadiusY="24"
-            Width="1010"
+            Grid.Column="1"
+            Width="800"
             Height="55"
-            Margin="0,0,140,0"
-            >
-        </Rectangle>
+            VerticalAlignment="Center"
+            Fill="#FF1B1F25"
+            RadiusX="32"
+            RadiusY="32" />
         <Button
-            Foreground="#e1b12c"
-            FontSize="27"
-            VerticalAlignment="Bottom"
-            HorizontalAlignment="Right"
-            Background="Transparent"
             x:Name="goBackBtn"
             Grid.Row="5"
             Grid.Column="2"
-            Click="goBackBtn_Click" Height="70" Margin="18,12,19,12" Width="242"
-            BorderThickness="0">
+            Width="242"
+            Height="70"
+            Margin="18,12,19,12"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="goBackBtn_Click"
+            FontSize="27"
+            Foreground="#e1b12c">
             <Button.Style>
                 <Style TargetType="Button">
-                    <Setter Property="BorderThickness" Value="0"></Setter>
+                    <Setter Property="BorderThickness" Value="0" />
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FF1B1F25"></Setter>
+                            <Setter Property="Background" Value="#FF1B1F25" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>
@@ -67,31 +68,49 @@
 
         <TextBlock
             Grid.Row="2"
-            VerticalAlignment="Center"
             Margin="40,0,0,0"
+            VerticalAlignment="Center"
             FontSize="25"
-            Foreground="White"
-            >
+            Foreground="White">
             Клиенты
         </TextBlock>
         <TextBlock
             Grid.Row="3"
-            VerticalAlignment="Center"
             Margin="40,0,0,0"
+            VerticalAlignment="Center"
             FontSize="25"
-            Foreground="White"
-            >
+            Foreground="White">
             Детали
         </TextBlock>
         <TextBlock
             Grid.Row="4"
-            VerticalAlignment="Center"
             Margin="40,0,0,0"
+            VerticalAlignment="Center"
             FontSize="25"
-            Foreground="White"
-            >
+            Foreground="White">
             Услуги
         </TextBlock>
-        
+
+        <Rectangle
+            Grid.Row="2"
+            Grid.RowSpan="4"
+            Grid.Column="1"
+            Width="850"
+            Height="550"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Fill="#FF1B1F25"
+            RadiusX="32"
+            RadiusY="32" />
+        <Rectangle
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="250"
+            Height="400"
+            Margin="120,250,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Fill="AliceBlue" />
+
     </Grid>
 </Window>

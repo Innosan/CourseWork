@@ -98,13 +98,11 @@
             Grid.Row="1"
             Width="304"
             Height="30"
+            Margin="0,40,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Margin="0,40,0,0"
             FontSize="14"
-            Foreground="#D8000C"
-            >
-        </TextBlock>
+            Foreground="#D8000C" />
         <Viewbox
             Grid.Row="1"
             Width="32"
@@ -132,13 +130,11 @@
             Grid.Row="1"
             Width="304"
             Height="30"
+            Margin="0,110,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Margin="0,110,0,0"
             FontSize="14"
-            Foreground="#D8000C"
-            >
-        </TextBlock>
+            Foreground="#D8000C" />
 
         <Viewbox
             Grid.Row="1"
@@ -167,14 +163,12 @@
             Grid.Row="1"
             Width="304"
             Height="30"
+            Margin="0,180,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Margin="0,180,0,0"
-            FontSize="14"
-            Foreground="#D8000C"
             Background="Transparent"
-            >
-        </TextBlock>
+            FontSize="14"
+            Foreground="#D8000C" />
 
         <Viewbox
             Grid.Row="1"
@@ -205,13 +199,11 @@
             Grid.Row="1"
             Width="304"
             Height="30"
+            Margin="0,250,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
-            Margin="0,250,0,0"
             FontSize="14"
-            Foreground="#D8000C"
-            >
-        </TextBlock>
+            Foreground="#D8000C" />
         <Button
             x:Name="logInBtn"
             Grid.Row="2"

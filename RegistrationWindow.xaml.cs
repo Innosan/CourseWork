@@ -81,10 +81,10 @@ namespace CourseWork
             }
             else
             {
-                /*MessageBox.Show("Поля валидны!");*/
+                
                 db.Users.Add(user);
                 db.SaveChanges();
-
+                MessageBox.Show("Пользователь зарегестрирован!");
                 foreach (TextBlock textBlock in errorBlocks)
                 {
                     textBlock.Text = "";
