@@ -67,6 +67,7 @@
         </Button>
 
         <TextBlock
+            x:Name="menuClients"
             Grid.Row="2"
             Margin="40,0,0,0"
             VerticalAlignment="Center"
@@ -75,6 +76,7 @@
             Клиенты
         </TextBlock>
         <TextBlock
+            x:Name="menuParts"
             Grid.Row="3"
             Margin="40,0,0,0"
             VerticalAlignment="Center"
@@ -83,6 +85,7 @@
             Детали
         </TextBlock>
         <TextBlock
+            x:Name="menuService"
             Grid.Row="4"
             Margin="40,0,0,0"
             VerticalAlignment="Center"

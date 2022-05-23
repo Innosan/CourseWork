@@ -57,10 +57,17 @@ namespace CourseWork
             string login = loginBox.Text;
             string mail = mailBox.Text;
             string password = passBox.Password;
+            int role;
+
+            if (roleChechbox.IsChecked == true)
+            {
+                role = 1;
+            }
+            else role = 2;
 
             List<TextBlock> errorBlocks = new List<TextBlock> { UserName, UserLogin, UserMail, UserPassword };
 
-            User user = new User(login, password, name, mail);
+            User user = new User(login, password, name, mail, role);
 
             UserValidator validator = new UserValidator();
 
@@ -81,14 +88,15 @@ namespace CourseWork
             }
             else
             {
-                
                 db.Users.Add(user);
                 db.SaveChanges();
+
                 MessageBox.Show("Пользователь зарегестрирован!");
-                foreach (TextBlock textBlock in errorBlocks)
-                {
-                    textBlock.Text = "";
-                }
+
+                var newLogin = new LogInWindow();
+                newLogin.Show();
+                this.Close();
+
             }
 
         }

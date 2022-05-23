@@ -44,7 +44,7 @@ namespace CourseWork
 
             if (authUser != null)
             {
-                var newForm = new MainWindow();
+                var newForm = new MainWindow(authUser.UserName, authUser.UserRole);
 
                 newForm.Show();
                 this.Close();

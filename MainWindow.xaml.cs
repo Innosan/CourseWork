@@ -13,10 +13,26 @@ namespace CourseWork
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public string publicUserName;
+        public int publicUserRole;
+
+        public MainWindow(string userName, int userRole)
         {
             InitializeComponent();
 
+            publicUserName = userName;
+            publicUserRole = userRole;
+
+            if (userRole == 1)
+            {
+                MessageBox.Show("Вы вошли как админ!");
+            }
+            else
+            {
+                MessageBox.Show("Ты бедный пользователь, ухади!(");
+
+                menuClients.Foreground = Brushes.Gray;
+            }
         }
 
         private void goBackBtn_Click(object sender, RoutedEventArgs e)
