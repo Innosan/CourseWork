@@ -24,28 +24,28 @@
             <ColumnDefinition Width="953*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="68*" />
-            <RowDefinition Height="35*" />
-            <RowDefinition Height="55*" />
-            <RowDefinition Height="55*" />
-            <RowDefinition Height="55*" />
-            <RowDefinition Height="423*" />
+            <RowDefinition Height="65*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="34*" />
+            <RowDefinition Height="221*" />
         </Grid.RowDefinitions>
+        <!--
         <Rectangle
             Grid.Column="1"
-            Width="800"
             Height="55"
             VerticalAlignment="Center"
             Fill="#FF1B1F25"
             RadiusX="32"
-            RadiusY="32" />
+            RadiusY="32" Margin="54,0,612,0" />
+        -->
         <Button
             x:Name="goBackBtn"
             Grid.Row="5"
-            Grid.Column="2"
+            Grid.Column="1"
             Width="242"
             Height="70"
-            Margin="18,12,19,12"
+            Margin="0,0,19,12"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
             Background="Transparent"
@@ -65,37 +65,53 @@
             </Button.Style>
             Back to Login
         </Button>
+        <TextBlock
+            x:Name="greetingLabel"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Height="96"
+            Margin="40,0,742,0"
+            VerticalAlignment="Center"
+            FontSize="36"
+            Foreground="White"
+            Text="Добро пожаловать, Саня" />
 
         <TextBlock
             x:Name="menuClients"
-            Grid.Row="2"
+            Grid.Row="1"
+            Width="134"
+            Height="30"
             Margin="40,0,0,0"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"
             FontSize="25"
-            Foreground="White">
+            Style="{DynamicResource menuTab}"
+            TextWrapping="NoWrap">
             Клиенты
         </TextBlock>
         <TextBlock
             x:Name="menuParts"
-            Grid.Row="3"
-            Margin="40,0,0,0"
+            Grid.Row="2"
+            Height="31"
+            Margin="40,0,121,0"
             VerticalAlignment="Center"
             FontSize="25"
-            Foreground="White">
+            Style="{DynamicResource menuTab}">
             Детали
         </TextBlock>
         <TextBlock
             x:Name="menuService"
-            Grid.Row="4"
-            Margin="40,0,0,0"
+            Grid.Row="3"
+            Height="31"
+            Margin="40,0,141,0"
             VerticalAlignment="Center"
             FontSize="25"
-            Foreground="White">
+            Style="{DynamicResource menuTab}">
             Услуги
         </TextBlock>
 
         <Rectangle
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
             Width="850"
@@ -105,15 +121,6 @@
             Fill="#FF1B1F25"
             RadiusX="32"
             RadiusY="32" />
-        <Rectangle
-            Grid.Row="2"
-            Grid.Column="1"
-            Width="250"
-            Height="400"
-            Margin="120,250,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Fill="AliceBlue" />
 
     </Grid>
 </Window>

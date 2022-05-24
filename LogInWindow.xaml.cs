@@ -5,9 +5,6 @@ using System.Windows.Media;
 
 namespace CourseWork
 {
-    /// <summary>
-    /// Логика взаимодействия для LogInWindow.xaml
-    /// </summary>
     public partial class LogInWindow : Window
     {
         public LogInWindow()

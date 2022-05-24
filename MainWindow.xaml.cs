@@ -1,26 +1,17 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Media;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Windows;
 
 namespace CourseWork
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public string publicUserName;
+        public string[] publicUserName;
         public int publicUserRole;
 
         public MainWindow(string userName, int userRole)
         {
             InitializeComponent();
 
-            publicUserName = userName;
+            publicUserName = userName.Split(' ');
             publicUserRole = userRole;
 
             if (userRole == 1)
@@ -31,8 +22,10 @@ namespace CourseWork
             {
                 MessageBox.Show("Ты бедный пользователь, ухади!(");
 
-                menuClients.Foreground = Brushes.Gray;
+                menuClients.TextDecorations = TextDecorations.Strikethrough;
             }
+
+            greetingLabel.Text = "Добро пожаловать,\n" + publicUserName[0] + "!";
         }
 
         private void goBackBtn_Click(object sender, RoutedEventArgs e)

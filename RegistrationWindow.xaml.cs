@@ -1,37 +1,27 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using System.Collections.Generic;
-using System.Linq;
 using CourseWork.Validators;
 using FluentValidation.Results;
-using System.ComponentModel;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace CourseWork
 {
-    /// <summary>
-    /// Логика взаимодействия для RegistrationWindow.xaml
-    /// </summary>
     public partial class RegistrationWindow : Window
     {
         ApplicationContext db;
 
-        BindingList<string> errors = new BindingList<string>();
+        /*public BindingList<string> errors { get; set; } = new BindingList<string>();*/
 
         public RegistrationWindow()
         {
             InitializeComponent();
-
+            
             db = new ApplicationContext();
 
             passBox.GotFocus += new RoutedEventHandler(passBox_Focus);
 
             passBox.Password = "samplepass";
-
-            Binding binding = new Binding();
-            binding.Source = errors;
         }
 
         private void passBox_Focus(object sender, RoutedEventArgs e)
@@ -51,7 +41,7 @@ namespace CourseWork
 
         private void logInBtn_Click(object sender, RoutedEventArgs e)
         {
-            errors.Clear();
+            /*errors.Clear();*/
 
             string name = nameBox.Text;
             string login = loginBox.Text;
@@ -65,18 +55,24 @@ namespace CourseWork
             }
             else role = 2;
 
+            if (passBox.Password == "samplepass")
+            {
+                password = "";
+            }
+
             List<TextBlock> errorBlocks = new List<TextBlock> { UserName, UserLogin, UserMail, UserPassword };
 
             User user = new User(login, password, name, mail, role);
 
-            UserValidator validator = new UserValidator();
-
+            UserValidator validator = new UserValidator();           
             FluentValidation.Results.ValidationResult results = validator.Validate(user);
 
             if (results.IsValid == false)
             {
                 foreach (ValidationFailure error in results.Errors)
                 {
+                    /*errors.Add(error.ErrorMessage);*/
+
                     foreach (TextBlock item in errorBlocks)
                     {
                         if (error.PropertyName == item.Name)
@@ -96,9 +92,7 @@ namespace CourseWork
                 var newLogin = new LogInWindow();
                 newLogin.Show();
                 this.Close();
-
             }
-
         }
     }
 }
