@@ -21,8 +21,7 @@ namespace CourseWork
             else
             {
                 MessageBox.Show("Ты бедный пользователь, ухади!(");
-
-                menuClients.TextDecorations = TextDecorations.Strikethrough;
+                addProductBtn.Visibility = Visibility.Collapsed;
             }
 
             greetingLabel.Text = "Добро пожаловать,\n" + publicUserName[0] + "!";
@@ -34,6 +33,22 @@ namespace CourseWork
 
             newWindow.Show();
             this.Close();
+        }
+
+        private void addProductBtn_Click(object sender, RoutedEventArgs e)
+        {
+            addProdPopup.IsOpen = true;
+        }
+
+        private void closePopupBtn_Click(object sender, RoutedEventArgs e)
+        {
+            nameTextBox.Text = "";
+            descTextBox.Text = "";
+            manufactTextBox.Text = "";
+            priceTextBox.Text = "";
+            quantityTextBox.Text = "";
+
+            addProdPopup.IsOpen = false;
         }
     }
 }

@@ -130,7 +130,7 @@
             HorizontalAlignment="Center"
             FontSize="18"
             Foreground="White">
-            Так<Hyperlink
+            Так&#160;<Hyperlink
                 x:Name="toRegistrationHypLink"
                 Click="toSignUpHypLink_Click"
                 Cursor="Hand"
