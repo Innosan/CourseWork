@@ -11,8 +11,6 @@ namespace CourseWork
     {
         ApplicationContext db;
 
-        /*public BindingList<string> errors { get; set; } = new BindingList<string>();*/
-
         public RegistrationWindow()
         {
             InitializeComponent();

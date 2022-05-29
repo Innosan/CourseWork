@@ -90,7 +90,7 @@
             VerticalAlignment="Top"
             Background="#00FFFFFF"
             FontSize="20"
-            Style="{StaticResource placeHolder}"
+            Style="{DynamicResource placeHolder}"
             Tag="Полное имя" />
         <TextBlock
             x:Name="UserName"

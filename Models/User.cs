@@ -1,7 +1,10 @@
-﻿namespace CourseWork
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CourseWork
 {
     internal class User
     {
+        [Key]
         public int userId { get; set; }
 
         private string userLogin;

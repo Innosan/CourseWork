@@ -71,8 +71,8 @@
             Height="96"
             Margin="40,0,742,0"
             VerticalAlignment="Center"
+            FontFamily="/CourseWork;component/Fonts/#Playfair Display"
             FontSize="36"
-            FontWeight="Bold"
             Foreground="White"
             Text="Добро пожаловать, Саня" />
 
@@ -104,8 +104,8 @@
         </Button>
         <Popup
             x:Name="addProdPopup"
-            Width="440"
-            Height="590"
+            Width="490"
+            Height="610"
             AllowsTransparency="True"
             Placement="Center">
             <Border
@@ -127,21 +127,38 @@
                         FontWeight="Bold"
                         Foreground="White"
                         Text="Добавление товара" />
+                    <Button
+                        x:Name="closePopUp"
+                        Width="40"
+                        Height="40"
+                        Margin="300,-480,0,0"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Click="closePopUp_Click">
+                        <Viewbox
+                            Width="48"
+                            Height="48"
+                            Margin="-6,-5,0,0">
+                            <Canvas Width="24" Height="24">
+                                <Path Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" Fill="White" />
+                            </Canvas>
+                        </Viewbox>
+                    </Button>
                     <TextBox
                         x:Name="nameTextBox"
                         Width="180"
                         Height="35"
-                        Margin="-110,-320,0,0"
+                        Margin="-60,-320,0,0"
                         Background="Transparent"
                         FontSize="18"
                         Foreground="White"
-                        Style="{StaticResource placeHolder}"
+                        Style="{DynamicResource placeHolder}"
                         Tag="Название..." />
                     <TextBox
                         x:Name="descTextBox"
                         Width="230"
                         Height="35"
-                        Margin="-60,-180,0,0"
+                        Margin="-10,-180,0,0"
                         Background="Transparent"
                         FontSize="18"
                         Foreground="White"
@@ -151,7 +168,7 @@
                         x:Name="manufactTextBox"
                         Width="210"
                         Height="35"
-                        Margin="-80,-40,0,0"
+                        Margin="-30,-40,0,0"
                         Background="Transparent"
                         FontSize="18"
                         Foreground="White"
@@ -161,8 +178,9 @@
                         x:Name="priceTextBox"
                         Width="80"
                         Height="35"
-                        Margin="-210,190,0,0"
+                        Margin="-160,190,0,0"
                         Background="Transparent"
+                        BorderBrush="{DynamicResource TextBoxBorder}"
                         FontSize="18"
                         FontWeight="Bold"
                         Foreground="White"
@@ -172,7 +190,7 @@
                         x:Name="quantityTextBox"
                         Width="80"
                         Height="35"
-                        Margin="90,190,0,0"
+                        Margin="140,190,0,0"
                         Background="Transparent"
                         FontSize="18"
                         FontWeight="Bold"
@@ -183,7 +201,7 @@
                         x:Name="closePopupBtn"
                         Width="200"
                         Height="50"
-                        Margin="-60,370,0,0"
+                        Margin="-10,370,0,0"
                         Background="#e1b12c"
                         Click="closePopupBtn_Click"
                         Content="Добавить"
@@ -194,24 +212,14 @@
 
             </Border>
         </Popup>
-        <Rectangle
-            Grid.Row="1"
-            Grid.RowSpan="4"
-            Grid.Column="1"
-            Width="850"
-            Height="550"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Fill="White"
-            RadiusX="32"
-            RadiusY="32" />
+
         <ListView
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
             Width="750"
             Height="450"
-            Margin="104,36,105,208"
+            Margin="104,0,105,208"
             Padding="10"
             Style="{DynamicResource prodList}">
             <ListView.Items>

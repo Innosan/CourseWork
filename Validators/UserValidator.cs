@@ -30,8 +30,7 @@ namespace CourseWork.Validators
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("Поле пустое!")
                 .Length(3, 15).WithMessage("Пароль слишком короткий!")
-                .Must(IsValidPassword).WithMessage("В пароле есть неприемлимые символы!");
-            
+                .Must(IsValidPassword).WithMessage("В пароле есть неприемлимые символы!");          
         }
 
         protected bool IsValidName(string name)
