@@ -2,7 +2,7 @@
 
 namespace CourseWork
 {
-    internal class Product
+    public class Product
     {
         [Key]
         public int prodId { get; set; }

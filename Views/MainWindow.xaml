@@ -8,6 +8,7 @@
     Title="Log In"
     Width="1240 "
     Height="850"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="/CourseWork;component/Fonts/#Montserrat Alternates"
     ResizeMode="CanResizeWithGrip"
     WindowStartupLocation="CenterScreen"
@@ -214,6 +215,7 @@
         </Popup>
 
         <ListView
+            Name="listView"
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
@@ -221,14 +223,32 @@
             Height="450"
             Margin="104,0,105,208"
             Padding="10"
+            ItemsSource="{Binding itemsList}"
             Style="{DynamicResource prodList}">
-            <ListView.Items>
-                <Label Content="fefewfeweweweg" />
-                <Label Content="fefewfeweweweg" />
-                <Label Content="fefewfeweweweg" />
-                <Label Content="fefewfeweweweg" />
-                <Label Content="fefewfeweweweg" />
-            </ListView.Items>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Path=ProdName}"
+                        Header="Название" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Path=ProdDescription}"
+                        Header="Описание" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Path=ProdManufacturer}"
+                        Header="Производитель" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Path=ProdPrice}"
+                        Header="Цена" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding Path=ProdQuantity}"
+                        Header="Количество   " />
+                </GridView>
+            </ListView.View>
         </ListView>
 
 

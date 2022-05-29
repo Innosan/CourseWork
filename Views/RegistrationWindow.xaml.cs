@@ -39,8 +39,6 @@ namespace CourseWork
 
         private void logInBtn_Click(object sender, RoutedEventArgs e)
         {
-            /*errors.Clear();*/
-
             string name = nameBox.Text;
             string login = loginBox.Text;
             string mail = mailBox.Text;
@@ -69,8 +67,6 @@ namespace CourseWork
             {
                 foreach (ValidationFailure error in results.Errors)
                 {
-                    /*errors.Add(error.ErrorMessage);*/
-
                     foreach (TextBlock item in errorBlocks)
                     {
                         if (error.PropertyName == item.Name)

@@ -1,5 +1,5 @@
 ﻿using CourseWork.Validators;
-using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -9,6 +9,8 @@ namespace CourseWork
     public partial class MainWindow : Window
     {
         ApplicationContext db;
+
+        public ObservableCollection<Product> itemsList { get; set; } = new ObservableCollection<Product>();
 
         public string[] publicUserName;
         public int publicUserRole;
@@ -33,6 +35,23 @@ namespace CourseWork
             }
 
             greetingLabel.Text = "Добро пожаловать,\n" + publicUserName[0] + "!";
+
+            UpdateItemsList();
+        }
+
+        private void UpdateItemsList()
+        {
+            itemsList.Clear();
+
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                var products = context.Products;
+
+                foreach (Product product in products)
+                {
+                    itemsList.Add(product);
+                }
+            }
         }
 
         private void goBackBtn_Click(object sender, RoutedEventArgs e)
@@ -118,6 +137,8 @@ namespace CourseWork
                 ClosePopUp();
 
                 MessageBox.Show("Продукт добавлен успешно!");
+
+                UpdateItemsList();
             }
         }
 
