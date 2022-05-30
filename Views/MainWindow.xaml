@@ -241,20 +241,12 @@
                         CornerRadius="24">
                         <Border.Effect>
                             <DropShadowEffect
+                                x:Name="shadowFX"
                                 BlurRadius="25"
                                 Opacity=".5"
                                 ShadowDepth="-5"
                                 Color="Black" />
                         </Border.Effect>
-                        <Border.Style>
-                            <Style TargetType="Border">
-                                <Style.Triggers>
-                                    <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                        <Setter Property="Background" Value="Transparent" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Border.Style>
                         <StackPanel
                             x:Name="itemStackPanel"
                             Width="660"

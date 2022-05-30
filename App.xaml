@@ -41,6 +41,13 @@
             <SolidColorBrush x:Key="ListBox.Disabled.Background" Color="#FFFFFFFF" />
             <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9" />
             <SolidColorBrush x:Key="TextBoxBorder" Color="#e1b12c" />
+            <Storyboard x:Key="shadowAnim" x:Name="shadowAnim">
+                <DoubleAnimation
+                    AutoReverse="True"
+                    Storyboard.TargetProperty="Opacity"
+                    To=".8"
+                    Duration="0:0:0.2" />
+            </Storyboard>
             <SolidColorBrush x:Key="TextBoxBorderValidationError" Color="#59E1452C" />
             <Style x:Key="prodList" TargetType="{x:Type ListView}">
                 <Setter Property="Background" Value="Transparent" />
@@ -56,14 +63,33 @@
                 <Setter Property="ItemContainerStyle">
                     <Setter.Value>
                         <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Border>
+
+                                            <ContentPresenter
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                                    <Setter Property="Background" Value="Transparent" />
-                                    <Setter Property="FontSize" Value="14" />
-                                </Trigger>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Red" />
-                                    <Setter Property="FontSize" Value="14" />
+                                    <!--<Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect
+                                                BlurRadius="30"
+                                                Opacity=".8"
+                                                ShadowDepth="-5"
+                                                Color="Black" />
+                                        </Setter.Value>
+                                    </Setter>-->
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard Storyboard="{StaticResource shadowAnim}" />
+                                    </Trigger.EnterActions>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
