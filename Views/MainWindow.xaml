@@ -31,6 +31,7 @@
             <RowDefinition Height="34*" />
             <RowDefinition Height="221*" />
         </Grid.RowDefinitions>
+
         <Rectangle
             Grid.Column="1"
             Height="68"
@@ -39,6 +40,7 @@
             Fill="#FF1B1F25"
             RadiusX="32"
             RadiusY="32 " />
+
         <TextBox
             x:Name="loginBox"
             Grid.Row="0"
@@ -49,6 +51,7 @@
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="Найти товар..." />
+
         <Button
             x:Name="goBackBtn"
             Grid.Row="5"
@@ -65,6 +68,7 @@
             Style="{DynamicResource backLogin}">
             Back to Login
         </Button>
+
         <TextBlock
             x:Name="greetingLabel"
             Grid.Column="0"
@@ -89,6 +93,7 @@
             TextWrapping="NoWrap">
             Товары
         </TextBlock>
+
         <Button
             x:Name="addProductBtn"
             Grid.Row="2"
@@ -103,6 +108,7 @@
                 </Canvas>
             </Viewbox>
         </Button>
+
         <Popup
             x:Name="addProdPopup"
             Width="490"
@@ -121,7 +127,6 @@
                     Width="400"
                     Height="550"
                     Background="#FF1B1F25">
-
                     <TextBlock
                         Margin="30,20,0,0"
                         FontSize="24"
@@ -210,7 +215,6 @@
                         FontWeight="Bold"
                         Style="{DynamicResource RoundedButton}" />
                 </Grid>
-
             </Border>
         </Popup>
 
@@ -219,38 +223,94 @@
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
-            Width="750"
-            Height="450"
-            Margin="104,0,105,208"
-            Padding="10"
+            Width="740"
+            Margin="109,18,110,118"
+            FontSize="18"
             ItemsSource="{Binding itemsList}"
+            ScrollViewer.CanContentScroll="False"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
             Style="{DynamicResource prodList}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Path=ProdName}"
-                        Header="Название" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Path=ProdDescription}"
-                        Header="Описание" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Path=ProdManufacturer}"
-                        Header="Производитель" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Path=ProdPrice}"
-                        Header="Цена" />
-                    <GridViewColumn
-                        Width="100"
-                        DisplayMemberBinding="{Binding Path=ProdQuantity}"
-                        Header="Количество   " />
-                </GridView>
-            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Width="670"
+                        Height="250"
+                        Margin="30,20,0,10"
+                        BorderBrush="#FF1B1F25"
+                        BorderThickness="9"
+                        CornerRadius="24">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="25"
+                                Opacity=".5"
+                                ShadowDepth="-5"
+                                Color="Black" />
+                        </Border.Effect>
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                        <Setter Property="Background" Value="Transparent" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                        <StackPanel
+                            x:Name="itemStackPanel"
+                            Width="660"
+                            Height="250"
+                            Margin="0,0,0,0"
+                            Background="#FF1B1F25">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsFocused" Value="True">
+                                            <Setter Property="Background" Value="Transparent" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                            <Rectangle
+                                Width="300"
+                                Height="200"
+                                Margin="-320,15,0,0"
+                                Fill="White"
+                                Opacity=".4"
+                                RadiusX="12"
+                                RadiusY="12" />
+                            <TextBlock
+                                Margin="360,-204,0,0"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Text="{Binding Path=ProdName}" />
+                            <TextBlock
+                                Margin="360,-150,0,0"
+                                FontSize="16"
+                                Opacity=".8"
+                                Text="{Binding Path=ProdDescription}" />
+                            <TextBlock
+                                Margin="360,-75,0,0"
+                                Opacity=".6"
+                                Text="{Binding Path=ProdManufacturer}" />
+                            <TextBlock
+                                Margin="360,-20,0,0"
+                                FontWeight="Bold"
+                                Opacity=".9"
+                                Text="{Binding Path=ProdPrice}">
+                                <Run>&#8381;</Run>
+                            </TextBlock>
+                            <TextBlock
+                                Margin="550,-20,0,0"
+                                FontWeight="Bold"
+                                Opacity=".9"
+                                TextDecorations="Underline">
+                                <Run Text="{Binding Path=ProdQuantity}" />
+                                <Run>шт.</Run>
+                            </TextBlock>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-
-
     </Grid>
 </Window>
