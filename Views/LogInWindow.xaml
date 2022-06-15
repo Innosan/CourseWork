@@ -101,7 +101,8 @@
             Background="#00FFFFFF"
             BorderBrush="#e1b12c"
             BorderThickness="0,0,0,3"
-            FontSize="14"
+            CaretBrush="#718093"
+            FontSize="18"
             Foreground="#fffcf2"
             Password="samplepass" />
         <Button

@@ -41,6 +41,8 @@ namespace CourseWork
 
             db = new ApplicationContext();
 
+            DateTime time = DateTime.Now;
+
             ItemsView.Filter = new Predicate<object>(o => Filter(o as Product));
 
             UpdateItemsList();
@@ -54,6 +56,19 @@ namespace CourseWork
                     CategoriesList.Add(categorie);
                 }
             }
+
+            if (userRole == 1)
+            {
+                roleLable.Text = "админ!";
+            }
+            else roleLable.Text = "юзер(";
+
+            if (time.Hour >= 18) accountGreetingTextBox.Text = $"Добрый вечер,\n{userName}!";                            // заменить кринж чем-нибудь
+            else
+                if (time.Hour < 6) accountGreetingTextBox.Text = $"Доброй ночи,\n{userName}!";
+            else
+                    if (time.Hour < 18 && time.Hour >= 12) accountGreetingTextBox.Text = $"Добрый день,\n{userName}!";
+                    else accountGreetingTextBox.Text = $"Доброе утро,\n{userName}!";
         }       
 
         private void goBackBtn_Click(object sender, RoutedEventArgs e)
@@ -118,7 +133,15 @@ namespace CourseWork
 
             if (nameResults.IsValid && descResults.IsValid && manufactResults.IsValid)
             {
-                db.Products.Add(product);
+                try
+                {
+                    db.Products.Add(product);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
                 db.SaveChanges();
 
                 ClosePopUp();
@@ -163,11 +186,11 @@ namespace CourseWork
         {
             if (sender.IsChecked == true)
             {
-                ItemsView.Filter = product => ((Product)product).ProdCategorie == sender.Content.ToString();
+                ItemsView.Filter = product => ((Product)product).ProdCategorie == sender.Content.ToString() && Filter(product as Product);
             }
             else
             {
-                ItemsView.Filter = null;
+                ItemsView.Filter = new Predicate<object>(o => Filter(o as Product));
             }
         }
 

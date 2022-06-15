@@ -187,6 +187,7 @@
             Background="#00FFFFFF"
             BorderBrush="#e1b12c"
             BorderThickness="0,0,0,3"
+            CaretBrush="#718093"
             FontSize="20"
             Foreground="#718093"
             MaxLength="14" />

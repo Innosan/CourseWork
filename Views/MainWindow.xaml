@@ -51,7 +51,7 @@
             Style="{StaticResource placeHolder}"
             Tag="Найти товар..."
             Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" />
-        <Button
+        <ToggleButton
             x:Name="accountInfoBtn"
             Grid.Column="1"
             Width="60"
@@ -64,8 +64,68 @@
                     <Path Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" Fill="#e1b12c" />
                 </Canvas>
             </Viewbox>
-        </Button>
-        <Button
+        </ToggleButton>
+        <Popup
+            x:Name="accountPopUp"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="2"
+            Margin="0,0,750,154"
+            AllowsTransparency="True"
+            HorizontalOffset="55"
+            IsOpen="{Binding IsChecked, ElementName=accountInfoBtn}"
+            Placement="Left"
+            PlacementTarget="{Binding ElementName=accountInfoBtn}"
+            PopupAnimation="Fade"
+            StaysOpen="False">
+            <Border
+                Margin="40,40,40,40"
+                BorderBrush="#FF1B1F25"
+                BorderThickness="8"
+                CornerRadius="24">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="25" Color="Black" />
+                </Border.Effect>
+                <Grid
+                    Width="400"
+                    Height="250"
+                    Margin="0,0,0,0"
+                    Background="#FF1B1F25">
+                    <TextBlock
+                        x:Name="accountGreetingTextBox"
+                        Margin="30,20,0,0"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Добрый вечер, " />
+                    <TextBlock
+                        Margin="30,140,0,0"
+                        FontSize="20"
+                        Foreground="White"
+                        Text="Вы вошли как" />
+                    <TextBlock
+                        x:Name="roleLable"
+                        Margin="190,140,0,0"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="гость!" />
+                    <Button
+                        x:Name="goBackBtn"
+                        Width="210"
+                        Height="60"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Click="goBackBtn_Click"
+                        FontSize="22"
+                        Style="{DynamicResource backLogin}">
+                        Back to Login
+                    </Button>
+                </Grid>
+            </Border>
+        </Popup>
+        <ToggleButton
             x:Name="filterBtn"
             Grid.Column="1"
             Width="60"
@@ -78,24 +138,60 @@
                     <Path Data="M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z" Fill="#e1b12c" />
                 </Canvas>
             </Viewbox>
-        </Button>
-
-        <Button
-            x:Name="goBackBtn"
-            Grid.Row="4"
-            Grid.Column="1"
-            Width="242"
-            Height="70"
-            Margin="0,0,19,12"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Background="Transparent"
-            BorderThickness="0"
-            Click="goBackBtn_Click"
-            FontSize="27"
-            Style="{DynamicResource backLogin}">
-            Back to Login
-        </Button>
+        </ToggleButton>
+        <Popup
+            x:Name="sortPopUp"
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="2"
+            Margin="0,0,750,154"
+            AllowsTransparency="True"
+            HorizontalOffset="-15"
+            IsOpen="{Binding IsChecked, ElementName=filterBtn}"
+            Placement="Left"
+            PlacementTarget="{Binding ElementName=filterBtn}"
+            PopupAnimation="Fade"
+            StaysOpen="False"
+            VerticalOffset="75">
+            <Border
+                Margin="40,40,40,40"
+                BorderBrush="#FF1B1F25"
+                BorderThickness="8"
+                CornerRadius="24">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="25" Color="Black" />
+                </Border.Effect>
+                <Grid
+                    Width="400"
+                    Height="150"
+                    Margin="0,0,0,0"
+                    Background="#FF1B1F25">
+                    <TextBlock
+                        Margin="30,20,0,0"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Производитель" />
+                    <ComboBox
+                        x:Name="manufactSortComboBox"
+                        Width="120"
+                        Height="30"
+                        Margin="30,0,0,0"
+                        HorizontalAlignment="Left" />
+                    <TextBlock
+                        Margin="250,20,0,0"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Цена" />
+                    <ComboBox
+                        x:Name="priceSortComboBox"
+                        Width="120"
+                        Height="30"
+                        Margin="250,0,0,0"
+                        HorizontalAlignment="Left" />
+                </Grid>
+            </Border>
+        </Popup>
 
         <TextBlock
             x:Name="greetingLabel"
@@ -172,7 +268,8 @@
             Grid.ColumnSpan="2"
             Margin="0,0,750,154"
             AllowsTransparency="True"
-            Placement="Center">
+            Placement="Center"
+            PopupAnimation="Fade">
             <Border
                 Margin="40,40,40,40"
                 BorderBrush="#FF1B1F25"
@@ -247,7 +344,7 @@
                         DisplayMemberPath="CategorieName"
                         FontSize="18"
                         Foreground="Black"
-                        ItemsSource="{Binding Path=categoriesList}"
+                        ItemsSource="{Binding Path=CategoriesList}"
                         SelectedValuePath="CategorieName" />
 
                     <TextBox
@@ -339,7 +436,6 @@
                                 Opacity=".4"
                                 RadiusX="12"
                                 RadiusY="12" />
-
                             <TextBlock
                                 Margin="360,-154,0,0"
                                 FontSize="24"
@@ -370,7 +466,6 @@
                                 TextDecorations="Underline">
                                 <Run Text="{Binding Path=ProdQuantity}" />
                                 <Run>шт.</Run>
-
                             </TextBlock>
                             <TextBlock
                                 Margin="25,-27,0,0"
