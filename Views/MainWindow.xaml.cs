@@ -1,5 +1,8 @@
-﻿using CourseWork.Validators;
+﻿using CourseWork.Models;
+using CourseWork.Validators;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,6 +14,7 @@ namespace CourseWork
         ApplicationContext db;
 
         public ObservableCollection<Product> itemsList { get; set; } = new ObservableCollection<Product>();
+        public List<Categorie> categoriesList { get; set; } = new List<Categorie>();
 
         public string[] publicUserName;
         public int publicUserRole;
@@ -34,9 +38,17 @@ namespace CourseWork
                 addProductBtn.Visibility = Visibility.Collapsed;
             }
 
-            greetingLabel.Text = "Добро пожаловать,\n" + publicUserName[0] + "!";
-
             UpdateItemsList();
+
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                var categories = context.Categories;
+
+                foreach (Categorie categorie in categories)
+                {
+                    categoriesList.Add(categorie);
+                }
+            }
         }
 
         private void UpdateItemsList()
@@ -72,10 +84,11 @@ namespace CourseWork
             string name = nameTextBox.Text;
             string desc = descTextBox.Text;
             string manufact = manufactTextBox.Text;
+            string categorie = categoriesComboBox.Text;
             string price = priceTextBox.Text;
             string quantity = quantityTextBox.Text;
 
-            Product product = new Product(name, desc, manufact, price, quantity);
+            Product product = new Product(name, desc, manufact, categorie, price, quantity);
 
             ProductNameValidator productNameValidator = new ProductNameValidator();
             FluentValidation.Results.ValidationResult nameResults = productNameValidator.Validate(product);

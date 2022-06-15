@@ -121,6 +121,15 @@
   <data name="MontserratAlternates_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Fonts\MontserratAlternates-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Nunito_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Fonts\Nunito-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Nunito_ExtraBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Fonts\Nunito-ExtraBold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Nunito_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Fonts\Nunito-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="PlayfairDisplay_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Fonts\PlayfairDisplay-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
