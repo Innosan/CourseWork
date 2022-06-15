@@ -21,8 +21,8 @@
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="279*" />
-            <ColumnDefinition Width="953*" />
+            <ColumnDefinition Width="73*" />
+            <ColumnDefinition Width="175*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="65*" />
@@ -35,7 +35,7 @@
         <Rectangle
             Grid.Column="1"
             Height="68"
-            Margin="479,0,186,0"
+            Margin="40,0,240,0"
             VerticalAlignment="Center"
             Fill="#FF1B1F25"
             RadiusX="32"
@@ -45,16 +45,39 @@
             x:Name="loginBox"
             Grid.Row="0"
             Grid.Column="1"
-            Height="30"
-            Margin="508,55,216,55"
+            Margin="65,55,425,55"
             Background="#00FFFFFF"
             FontSize="20"
             Style="{StaticResource placeHolder}"
             Tag="Найти товар..." />
+        <Button Width="60" Height="60"
+                x:Name="accountInfoBtn"
+                BorderThickness="0"
+                Background="Transparent"
+                Grid.Column="1"
+                Margin="735,0,0,0">
+            <Viewbox Width="60" Height="60">
+                <Canvas Width="24" Height="24">
+                    <Path Fill="#e1b12c" Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
+                </Canvas>
+            </Viewbox>
+        </Button>
+        <Button Width="60" Height="60"
+                x:Name="filterBtn"
+                BorderThickness="0"
+                Background="Transparent"
+                Grid.Column="1"
+                Margin="480,0,0,0">
+            <Viewbox Width="52" Height="52">
+                <Canvas Width="24" Height="24">
+                    <Path Fill="#e1b12c" Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
+                </Canvas>
+            </Viewbox>
+        </Button>
 
         <Button
             x:Name="goBackBtn"
-            Grid.Row="5"
+            Grid.Row="4"
             Grid.Column="1"
             Width="242"
             Height="70"
@@ -79,25 +102,51 @@
             FontFamily="/CourseWork;component/Fonts/#Playfair Display"
             FontSize="36"
             Foreground="White"
-            Text="Добро пожаловать, Саня" />
+            Text="Добро пожаловать!" />
 
         <TextBlock
-            x:Name="menuClients"
+            x:Name="filterTabFavors"
             Grid.Row="1"
-            Width="137"
             Height="50"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            FontSize="34"
+            FontSize="24"
+            Margin="80,0,0,0"
             Style="{DynamicResource menuTab}"
-            TextWrapping="NoWrap">
-            Товары
+            TextWrapping="NoWrap"
+            Text="Услуги" Width="104">
+        </TextBlock>
+        <TextBlock
+            x:Name="filterTabComponents"
+            Grid.Row="2"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="24"
+            Margin="80,0,0,0"
+            Style="{DynamicResource menuTab}"
+            TextWrapping="NoWrap"
+            Text="Комплектующие" Width="264">
+        </TextBlock>
+        <TextBlock
+            x:Name="filterTabTech"
+            Grid.Row="3"
+            Height="50"
+            Margin="80,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="24"
+            Style="{DynamicResource menuTab}"
+            TextWrapping="NoWrap"
+            Text="Техника" Width="120">
         </TextBlock>
 
         <Button
             x:Name="addProductBtn"
-            Grid.Row="2"
-            Width="55"
+            Grid.Row="4"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="80,15,116,0"
             Height="55"
             Background="Transparent"
             BorderBrush="Transparent"
@@ -111,10 +160,8 @@
 
         <Popup
             x:Name="addProdPopup"
-            Width="490"
-            Height="610"
             AllowsTransparency="True"
-            Placement="Center">
+            Placement="Center" Grid.ColumnSpan="2" Margin="0,0,750,154" Grid.RowSpan="5">
             <Border
                 Margin="40,40,40,40"
                 BorderBrush="#FF1B1F25"
@@ -125,7 +172,7 @@
                 </Border.Effect>
                 <Grid
                     Width="400"
-                    Height="550"
+                    Height="620"
                     Background="#FF1B1F25">
                     <TextBlock
                         Margin="30,20,0,0"
@@ -137,7 +184,7 @@
                         x:Name="closePopUp"
                         Width="40"
                         Height="40"
-                        Margin="300,-480,0,0"
+                        Margin="300,-550,0,0"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         Click="closePopUp_Click">
@@ -154,7 +201,7 @@
                         x:Name="nameTextBox"
                         Width="180"
                         Height="35"
-                        Margin="-60,-320,0,0"
+                        Margin="-60,-390,0,0"
                         Background="Transparent"
                         FontSize="18"
                         Foreground="White"
@@ -164,7 +211,7 @@
                         x:Name="descTextBox"
                         Width="230"
                         Height="35"
-                        Margin="-10,-180,0,0"
+                        Margin="-10,-240,0,0"
                         Background="Transparent"
                         FontSize="18"
                         Foreground="White"
@@ -174,17 +221,30 @@
                         x:Name="manufactTextBox"
                         Width="210"
                         Height="35"
-                        Margin="-30,-40,0,0"
+                        Margin="-30,-90,0,0"
                         Background="Transparent"
                         FontSize="18"
                         Foreground="White"
                         Style="{StaticResource placeHolder}"
                         Tag="Производитель..." />
+                    <ComboBox
+                        ItemsSource="{Binding Path=categoriesList}"
+                        DisplayMemberPath="CategorieName"
+                        SelectedValuePath="CategorieName"
+                        Width="230"                              
+                        x:Name="categoriesComboBox"
+                        Height="35"    
+                        Margin="-10,50,0,0"
+                        Background="Transparent"
+                        FontSize="18"
+                        Foreground="Black">
+                    </ComboBox>
+
                     <TextBox
                         x:Name="priceTextBox"
                         Width="80"
                         Height="35"
-                        Margin="-160,190,0,0"
+                        Margin="-160,230,0,0"
                         Background="Transparent"
                         BorderBrush="{DynamicResource TextBoxBorder}"
                         FontSize="18"
@@ -196,7 +256,7 @@
                         x:Name="quantityTextBox"
                         Width="80"
                         Height="35"
-                        Margin="140,190,0,0"
+                        Margin="140,230,0,0"
                         Background="Transparent"
                         FontSize="18"
                         FontWeight="Bold"
@@ -207,7 +267,7 @@
                         x:Name="closePopupBtn"
                         Width="200"
                         Height="50"
-                        Margin="-10,370,0,0"
+                        Margin="-10,430,0,0"
                         Background="#e1b12c"
                         Click="closePopupBtn_Click"
                         Content="Добавить"
@@ -223,8 +283,7 @@
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
-            Width="740"
-            Margin="109,18,110,118"
+            Margin="40,-15,104,118"
             FontSize="18"
             ItemsSource="{Binding itemsList}"
             ScrollViewer.CanContentScroll="False"
@@ -263,41 +322,50 @@
                                 </Style>
                             </StackPanel.Style>
                             <Rectangle
-                                Width="300"
-                                Height="200"
-                                Margin="-320,15,0,0"
+                                Width="250"
+                                Height="150"
+                                Margin="-360,15,0,0"
                                 Fill="White"
                                 Opacity=".4"
                                 RadiusX="12"
                                 RadiusY="12" />
+
                             <TextBlock
-                                Margin="360,-204,0,0"
+                                Margin="360,-154,0,0"
                                 FontSize="24"
                                 FontWeight="Bold"
                                 Text="{Binding Path=ProdName}" />
                             <TextBlock
-                                Margin="360,-150,0,0"
+                                Margin="360,-105,0,0"
                                 FontSize="16"
                                 Opacity=".8"
                                 Text="{Binding Path=ProdDescription}" />
                             <TextBlock
-                                Margin="360,-75,0,0"
+                                Margin="360,-35,0,0"
                                 Opacity=".6"
                                 Text="{Binding Path=ProdManufacturer}" />
                             <TextBlock
-                                Margin="360,-20,0,0"
+                                Margin="360,35,0,0"
                                 FontWeight="Bold"
                                 Opacity=".9"
                                 Text="{Binding Path=ProdPrice}">
                                 <Run>&#8381;</Run>
                             </TextBlock>
                             <TextBlock
+                                Width="200"
                                 Margin="550,-20,0,0"
                                 FontWeight="Bold"
                                 Opacity=".9"
                                 TextDecorations="Underline">
                                 <Run Text="{Binding Path=ProdQuantity}" />
                                 <Run>шт.</Run>
+
+                            </TextBlock>
+                            <TextBlock
+                                Margin="25,-27,0,0"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text="{Binding Path=ProdCategorie}">
                             </TextBlock>
                         </StackPanel>
                     </Border>
