@@ -46,7 +46,7 @@ namespace CourseWork
             ItemsView.Filter = new Predicate<object>(o => Filter(o as Product));
 
             UpdateItemsList();
-
+                
             using (ApplicationContext context = new ApplicationContext())
             {
                 var categories = context.Categories;
@@ -61,7 +61,11 @@ namespace CourseWork
             {
                 roleLable.Text = "админ!";
             }
-            else roleLable.Text = "юзер(";
+            else
+            {
+                addProductBtn.Visibility = Visibility.Collapsed;
+                roleLable.Text = "юзер(";
+            };
 
             if (time.Hour >= 18) accountGreetingTextBox.Text = $"Добрый вечер,\n{userName}!";                            // заменить кринж чем-нибудь
             else

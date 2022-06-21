@@ -121,6 +121,124 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            <Style x:Key="FocusVisual2">
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <SolidColorBrush x:Key="Button.Static.Background2" Color="#FFDDDDDD"/>
+            <SolidColorBrush x:Key="Button.Static.Border2" Color="#FF707070"/>
+            <SolidColorBrush x:Key="Button.MouseOver.Background3" Color="#FFBEE6FD"/>
+            <SolidColorBrush x:Key="Button.MouseOver.Border3" Color="#FF3C7FB1"/>
+            <SolidColorBrush x:Key="Button.Pressed.Background3" Color="#FFC4E5F6"/>
+            <SolidColorBrush x:Key="Button.Pressed.Border3" Color="#FF2C628B"/>
+            <SolidColorBrush x:Key="Button.Disabled.Background3" Color="#FFF4F4F4"/>
+            <SolidColorBrush x:Key="Button.Disabled.Border3" Color="#FFADB2B5"/>
+            <SolidColorBrush x:Key="Button.Disabled.Foreground3" Color="#FF838383"/>
+            <Style x:Key="menuTabToggleBtn" TargetType="{x:Type ToggleButton}">
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual2}"/>
+                <Setter Property="Background" Value="{StaticResource Button.Static.Background2}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border2}"/>
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="24" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="#FF1B1F25"></Setter>
+                                    <Setter Property="Foreground" Value="#e1b12c"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="Transparent"></Setter>
+                                    <Setter Property="Foreground" Value="#e1b12c"></Setter>
+                                </Trigger>
+                                    
+                                
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsMouseOver" Value="false" />
+                                        <Condition Property="IsChecked" Value="true" />
+                                    </MultiTrigger.Conditions>
+                                    <Setter Property="Background" TargetName="border" Value="#FF1B1F25"></Setter>
+                                    <Setter Property="Foreground" Value="#e1b12c"></Setter>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsMouseOver" Value="false" />
+                                        <Condition Property="IsChecked" Value="false" />
+                                    </MultiTrigger.Conditions>
+                                    <MultiTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" To="#FF888888" Duration="0:0:0.3"></ColorAnimation>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" To="Transparent" Duration="0:0:0.3"></ColorAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.EnterActions>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>
+                                        <Condition Property="IsMouseOver" Value="true" />
+                                        <Condition Property="IsChecked" Value="true" />
+                                    </MultiTrigger.Conditions>
+                                    <MultiTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" To="#e1b12c" Duration="0:0:0.3"></ColorAnimation>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" To="#FF1B1F25" Duration="0:0:0.3"></ColorAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.EnterActions>
+                                </MultiTrigger>
+                                <MultiTrigger>
+                                    <MultiTrigger.Conditions>   
+                                        <Condition Property="IsMouseOver" Value="true" />
+                                        <Condition Property="IsChecked" Value="false" />
+                                    </MultiTrigger.Conditions>
+                                    <MultiTrigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" To="#e1b12c" Duration="0:0:0.3"></ColorAnimation>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" To="#FF1B1F25" Duration="0:0:0.3"></ColorAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.EnterActions>
+                                    <MultiTrigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Control.Foreground).(SolidColorBrush.Color)" To="#FF888888" Duration="0:0:0.3"></ColorAnimation>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" To="Transparent" Duration="0:0:0.3"></ColorAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </MultiTrigger.ExitActions>
+                                </MultiTrigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background3}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border3}"/>
+                                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground3}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
             <Style x:Key="prodList" TargetType="{x:Type ListView}">
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="BorderBrush" Value="Transparent" />
