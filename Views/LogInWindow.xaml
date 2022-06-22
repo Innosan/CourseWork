@@ -141,6 +141,68 @@
                 создайте!
             </Hyperlink>
         </TextBlock>
+        <Popup
+            x:Name="captchaPopup"
+            Margin="0,0,750,154"
+            AllowsTransparency="True"
+            IsOpen="False"
+            Placement="Center"
+            PopupAnimation="Fade">
+            <Border
+                Width="300"
+                Height="310"
+                Margin="40,40,40,40"
+                BorderBrush="#F04D5158"
+                BorderThickness="8"
+                CornerRadius="24">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="25" Color="Black" />
+                </Border.Effect>
+                <Grid Background="#F04D5158">
+                    <TextBlock
+                        Width="181"
+                        Margin="0,15,0,0"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="Слишком много попыток входа!"
+                        TextAlignment="Center"
+                        TextWrapping="WrapWithOverflow" />
+                    <TextBlock
+                        x:Name="captchaTextBlock"
+                        Margin="0,0,0,50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="26"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="CAPTCHA"
+                        TextDecorations="Strikethrough" />
+                    <TextBox
+                        x:Name="userCaptchaTextBlock"
+                        Width="210"
+                        Height="30"
+                        Margin="0,80,0,0"
+                        Background="Transparent"
+                        FontSize="18"
+                        Style="{DynamicResource placeHolder}"
+                        Tag="Введите символы..."
+                        TextAlignment="Center" />
+                    <Button
+                        x:Name="captchaAcceptBtn"
+                        Width="150"
+                        Height="55"
+                        Margin="0,0,0,15"
+                        VerticalAlignment="Bottom"
+                        Background="#e1b12c"
+                        Click="captchaAcceptBtn_Click"
+                        Content="Войти"
+                        FontSize="21"
+                        FontWeight="Bold"
+                        Style="{DynamicResource RoundedButton}" />
+                </Grid>
 
+            </Border>
+        </Popup>
     </Grid>
 </Window>

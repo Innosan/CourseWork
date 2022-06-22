@@ -25,10 +25,11 @@
             <ColumnDefinition Width="175*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="65*" />
-            <RowDefinition Height="34*" />
-            <RowDefinition Height="34*" />
-            <RowDefinition Height="34*" />
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="37*" />
+            <RowDefinition Height="37*" />
+            <RowDefinition Height="37*" />
+            <RowDefinition Height="37*" />
             <RowDefinition Height="221*" />
         </Grid.RowDefinitions>
 
@@ -54,11 +55,12 @@
         <ToggleButton
             x:Name="accountInfoBtn"
             Grid.Column="1"
-            Width="60"
-            Height="60"
+            Width="70"
+            Height="70"
             Margin="735,0,0,0"
             Background="Transparent"
-            BorderThickness="0">
+            BorderThickness="0"
+            Style="{DynamicResource menuTabToggleBtn}">
             <Viewbox Width="60" Height="60">
                 <Canvas Width="24" Height="24">
                     <Path Data="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" Fill="#e1b12c" />
@@ -128,14 +130,15 @@
         <ToggleButton
             x:Name="filterBtn"
             Grid.Column="1"
-            Width="60"
-            Height="60"
+            Width="70"
+            Height="70"
             Margin="480,0,0,0"
             Background="Transparent"
-            BorderThickness="0">
+            BorderThickness="0"
+            Style="{DynamicResource menuTabToggleBtn}">
             <Viewbox Width="52" Height="52">
                 <Canvas Width="24" Height="24">
-                    <Path Data="M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z" Fill="#e1b12c" />
+                    <Path Data="M3,13H15V11H3M3,6V8H21V6M3,18H9V16H3V18Z" Fill="#e1b12c" />
                 </Canvas>
             </Viewbox>
         </ToggleButton>
@@ -202,65 +205,83 @@
             FontSize="35"
             Foreground="White"
             Text="Добро пожаловать!" />
-        <ToggleButton Style="{DynamicResource menuTabToggleBtn}"
+        <RadioButton
             Grid.Row="1"
-            Width="145"
+            Width="195"
             Height="50"
             Margin="80,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            Click="RadioButton_Click"
+            Content="Все товары"
+            FontSize="24"
+            Foreground="#FF888888"
+            Style="{DynamicResource menuTabToggleBtn}" />
+        <RadioButton
+            Grid.Row="2"
+            Width="125"
+            Height="50"
+            Margin="80,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
             Background="Transparent"
             BorderBrush="Transparent"
             Click="FilterTab_Click"
             Content="Услуги"
             FontSize="24"
-            Foreground="#FF888888" />
-        <ToggleButton
-            Grid.Row="2"
+            Foreground="#FF888888"
+            Style="{DynamicResource menuTabToggleBtn}" />
+        <RadioButton
+            Grid.Row="3"
             Width="264"
-            Style="{DynamicResource menuTabToggleBtn}"
             Height="50"
             Margin="80,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
             Background="Transparent"
             BorderBrush="Transparent"
             Click="FilterTab_Click"
             Content="Комплектующие"
             FontSize="24"
-            Foreground="#FF888888" />
-        <ToggleButton
-            Grid.Row="3"
+            Foreground="#FF888888"
+            Style="{DynamicResource menuTabToggleBtn}" />
+        <RadioButton
+            Grid.Row="4"
             Width="145"
             Height="50"
-            Style="{DynamicResource menuTabToggleBtn}"
             Margin="80,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
             Background="Transparent"
-            
             BorderBrush="Transparent"
             Click="FilterTab_Click"
             Content="Техника"
             FontSize="24"
-            Foreground="#FF888888" />
+            Foreground="#FF888888"
+            Style="{DynamicResource menuTabToggleBtn}" />
 
         <Button
             x:Name="addProductBtn"
-            Grid.Row="4"
+            Grid.Row="5"
+            Width="80"
             Height="55"
-            Margin="80,15,116,0"
+            Margin="80,20,116,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="Transparent"
             BorderBrush="Transparent"
-            Click="addProductBtn_Click">
+            Click="addProductBtn_Click"
+            Style="{DynamicResource backLogin}">
             <Viewbox Width="48" Height="48">
                 <Canvas Width="24" Height="24">
                     <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="#e1b12c" />
@@ -341,11 +362,22 @@
                         Foreground="White"
                         Style="{StaticResource placeHolder}"
                         Tag="Производитель..." />
+                    <Button
+                        x:Name="addImageBtn"
+                        Width="280"
+                        Height="60"
+                        Margin="-10,380,0,0"
+                        Background="#e1b12c"
+                        Click="addImageBtn_Click"
+                        Content="Добавить изображение"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Style="{DynamicResource RoundedButton}" />
                     <ComboBox
                         x:Name="categoriesComboBox"
                         Width="230"
                         Height="35"
-                        Margin="-10,50,0,0"
+                        Margin="-10,70,0,0"
                         Background="Transparent"
                         DisplayMemberPath="CategorieName"
                         FontSize="18"
@@ -380,7 +412,7 @@
                         x:Name="closePopupBtn"
                         Width="200"
                         Height="50"
-                        Margin="-10,430,0,0"
+                        Margin="-10,520,0,0"
                         Background="#e1b12c"
                         Click="closePopupBtn_Click"
                         Content="Добавить"
@@ -394,7 +426,7 @@
         <ListView
             Name="listView"
             Grid.Row="1"
-            Grid.RowSpan="4"
+            Grid.RowSpan="5"
             Grid.Column="1"
             Margin="40,-15,104,118"
             FontSize="18"
@@ -405,6 +437,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border
+                        x:Name="cardBorder"
                         Width="670"
                         Height="250"
                         Margin="30,20,0,10"
@@ -419,6 +452,7 @@
                                 ShadowDepth="-5"
                                 Color="Black" />
                         </Border.Effect>
+
                         <StackPanel
                             x:Name="itemStackPanel"
                             Width="660"
@@ -434,39 +468,99 @@
                                     </Style.Triggers>
                                 </Style>
                             </StackPanel.Style>
-                            <Rectangle
+
+                            <Image
                                 Width="250"
                                 Height="150"
                                 Margin="-360,15,0,0"
-                                Fill="White"
-                                Opacity=".4"
-                                RadiusX="12"
-                                RadiusY="12" />
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Opacity=".7"
+                                Source="{Binding Path=ProdPicture}"
+                                Stretch="UniformToFill" />
                             <TextBlock
-                                Margin="360,-154,0,0"
+                                Width="240"
+                                Height="40"
+                                Margin="180,-260,0,0"
                                 FontSize="24"
                                 FontWeight="Bold"
-                                Text="{Binding Path=ProdName}" />
+                                Text="{Binding Path=ProdName}"
+                                TextAlignment="Left" />
+                            <!--
+                                <TextBlock
+                                    Width="320"
+                                    Height="50"
+                                    Margin="0,-100,0,0"
+                                    Panel.ZIndex="120"
+                                    FontSize="34"
+                                    FontWeight="Bold"
+                                    Foreground="#e1b12c"
+                                    Opacity="1"
+                                    Text="НЕТ В НАЛИЧИИ" />
+                            -->
+                            <Button
+                                x:Name="deleteBtn"
+                                Width="48"
+                                Height="48"
+                                Margin="590,-270,0,0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Click="deleteItemBtn_Click"
+                                IsEnabled="True"
+                                Style="{DynamicResource backLogin}">
+                                <Viewbox
+                                    Width="36"
+                                    Height="36"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19M8,9H16V19H8V9M15.5,4L14.5,3H9.5L8.5,4H5V6H19V4H15.5Z" Fill="#e1b12c" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                            <Button
+                                x:Name="editItemBtn"
+                                Width="48"
+                                Height="48"
+                                Margin="480,-270,0,0"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Style="{DynamicResource backLogin}">
+                                <Viewbox
+                                    Width="36"
+                                    Height="36"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M7,14.94L13.06,8.88L15.12,10.94L9.06,17H7V14.94M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M16.7,9.35L15.7,10.35L13.65,8.3L14.65,7.3C14.86,7.08 15.21,7.08 15.42,7.3L16.7,8.58C16.92,8.79 16.92,9.14 16.7,9.35M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2" Fill="#e1b12c" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
                             <TextBlock
-                                Margin="360,-105,0,0"
+                                Width="320"
+                                Height="60"
+                                Margin="260,-140,0,0"
                                 FontSize="16"
                                 Opacity=".8"
                                 Text="{Binding Path=ProdDescription}"
                                 TextWrapping="WrapWithOverflow" />
                             <TextBlock
-                                Margin="360,-35,0,0"
+                                Width="240"
+                                Height="25"
+                                Margin="180,-20,0,0"
                                 Opacity=".6"
                                 Text="{Binding Path=ProdManufacturer}" />
                             <TextBlock
-                                Margin="360,35,0,0"
+                                Width="120"
+                                Margin="60,35,0,0"
                                 FontWeight="Bold"
                                 Opacity=".9"
                                 Text="{Binding Path=ProdPrice}">
                                 <Run>&#8381;</Run>
                             </TextBlock>
                             <TextBlock
-                                Width="200"
-                                Margin="550,-20,0,0"
+                                Width="120"
+                                Margin="530,-20,0,0"
                                 FontWeight="Bold"
                                 Opacity=".9"
                                 TextDecorations="Underline">
@@ -474,7 +568,9 @@
                                 <Run>шт.</Run>
                             </TextBlock>
                             <TextBlock
-                                Margin="25,-27,0,0"
+                                Width="220"
+                                Height="30"
+                                Margin="-390,-27,0,0"
                                 FontSize="20"
                                 FontWeight="Bold"
                                 Text="{Binding Path=ProdCategorie}" />

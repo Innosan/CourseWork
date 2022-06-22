@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -54,9 +55,11 @@ namespace CourseWork
 
                 if (wrongLoginErrorCnt % 3 == 0)
                 {
-                    /*MessageBox.Show(wrongLoginErrorCnt.ToString());*/
+                    GenerateCaptchaText();
 
+                    captchaPopup.IsEnabled = true;
 
+                    DisableControlsOnCaptcha();
                 }
             }
             else
@@ -69,19 +72,39 @@ namespace CourseWork
                 
         }
 
-        private void ThrowCaptcha()
+        private void DisableControlsOnCaptcha()
         {
-            /*Popup captchaBox = new Popup
+            loginBox.IsEnabled = !loginBox.IsEnabled;
+            passBox.IsEnabled = !passBox.IsEnabled;
+            toRegistrationHypLink.IsEnabled = !toRegistrationHypLink.IsEnabled;
+        }
+
+        private void GenerateCaptchaText()
+        {
+            string path = Path.GetRandomFileName();
+
+            path = path.Replace(".", "");
+            captchaTextBlock.Text =  path.Substring(3, 6);
+
+            captchaPopup.IsOpen = true;
+        }
+
+        private void captchaAcceptBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (userCaptchaTextBlock.Text == captchaTextBlock.Text)
             {
-                Width = 250,
-                Height = 100,
+                captchaPopup.IsOpen = false;
 
-                IsOpen = true
-            };
+                DisableControlsOnCaptcha(); //enable
+            }
+            else
+            {
+                captchaPopup.IsOpen = false;
+                MessageBox.Show("Проверка не пройти, -100 социальный кредит и кошка жена убить, миска рис украсть!1!\n\nヽ(≧Д≦)ノ ");
+                captchaPopup.IsOpen = true;
 
-            Grid captchaGrid = new Grid {
-                Background = Brushes.Gray
-            };*/
+                GenerateCaptchaText();
+            }
         }
     }
 }

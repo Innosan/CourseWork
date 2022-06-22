@@ -1,14 +1,20 @@
 ﻿using CourseWork.Models;
 using CourseWork.Validators;
+using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace CourseWork
 {
@@ -20,6 +26,10 @@ namespace CourseWork
         public ICollectionView ItemsView { get { return CollectionViewSource.GetDefaultView(ItemsList); } }
 
         public List<Categorie> CategoriesList { get; set; } = new List<Categorie>();
+
+        public int UserRole;
+
+        public string productImageLink;
 
         private string search;
         public string Search
@@ -39,6 +49,8 @@ namespace CourseWork
         {
             InitializeComponent();
 
+            UserRole = userRole;
+
             db = new ApplicationContext();
 
             DateTime time = DateTime.Now;
@@ -46,6 +58,7 @@ namespace CourseWork
             ItemsView.Filter = new Predicate<object>(o => Filter(o as Product));
 
             UpdateItemsList();
+            
                 
             using (ApplicationContext context = new ApplicationContext())
             {
@@ -64,6 +77,7 @@ namespace CourseWork
             else
             {
                 addProductBtn.Visibility = Visibility.Collapsed;
+
                 roleLable.Text = "юзер(";
             };
 
@@ -96,8 +110,9 @@ namespace CourseWork
             string categorie = categoriesComboBox.Text;
             string price = priceTextBox.Text;
             string quantity = quantityTextBox.Text;
+            string image = productImageLink;
 
-            Product product = new Product(name, desc, manufact, categorie, price, quantity);
+            Product product = new Product(name, desc, manufact, categorie, price, quantity, image);
 
             ProductNameValidator productNameValidator = new ProductNameValidator();
             FluentValidation.Results.ValidationResult nameResults = productNameValidator.Validate(product);
@@ -161,7 +176,7 @@ namespace CourseWork
 
         private void FilterTab_Click(object sender, RoutedEventArgs e)
         {
-            FilterView((ToggleButton)sender);
+            FilterView((RadioButton)sender);
         }
 
         private void UpdateItemsList()
@@ -175,8 +190,10 @@ namespace CourseWork
                 foreach (Product product in products)
                 {
                     ItemsList.Add(product);
-                }
+                }             
             }
+
+
         }
         private bool Filter(Product product)
         {
@@ -186,7 +203,7 @@ namespace CourseWork
                 || product.ProdDescription.IndexOf(Search, StringComparison.OrdinalIgnoreCase) != -1;
         }
 
-        private void FilterView(ToggleButton sender)
+        private void FilterView(RadioButton sender)
         {
             if (sender.IsChecked == true)
             {
@@ -232,7 +249,59 @@ namespace CourseWork
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
 
-            addProdPopup.IsOpen = false;
+            addProdPopup.IsOpen = false;         
+        }
+
+        private void deleteItemBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserRole == 1)
+            {
+                var currentItem = ((ListBoxItem)listView.ContainerFromElement((Button)sender)).Content;
+
+                Product deleteItem = (Product)currentItem;
+
+                using (ApplicationContext context = new ApplicationContext())
+                {
+                    var prod = context.Products.Single(o => o.prodId == deleteItem.prodId);
+                    context.Products.Remove(prod);
+                    context.SaveChanges();
+                }
+
+                UpdateItemsList();
+            }
+
+            else
+            {
+                MessageBox.Show("Братишка, не туда ты нажал, за тобой выехали уже.");
+
+                ((Button)sender).IsEnabled = false;              
+            }
+
+            
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            ItemsView.Filter = new Predicate<object>(o => Filter(o as Product));
+        }
+
+        private void addImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Multiselect = true,
+
+                Filter = "img files (*.jpg,.*png,*.jpeg)|*.jpg;.*png;*.jpeg"
+            };
+
+            dialog.ShowDialog();
+
+            if (dialog.FileName.ToString() == "")
+            {
+                return;
+            }
+
+            productImageLink = dialog.FileName;
         }
     }
 }
